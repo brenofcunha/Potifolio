@@ -13,21 +13,52 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="card" id="card">
+    <div class="container">
+      <div class="card feedback-card">
+        <h2>Sugestões de Melhorias</h2>
+        <p class="feedback-description">
+          Compartilhe suas ideias e sugestões para melhorar este portfólio!
+        </p>
+        <form class="feedback-form">
+          <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comentário:</label>
+            <textarea 
+              id="comment" 
+              name="comment" 
+              rows="5" 
+              placeholder="Deixe sua sugestão aqui..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Enviar Sugestão</button>
+        </form>
+      </div>
+
+      <div class="card" id="card">
       <img
-        src="https://avatars.githubusercontent.com/u/brenofcunha"
+        src="img/WhatsApp Image 2026-03-30 at 13.50.43.jpeg"
         alt="Foto de perfil de Breno Cunha"
         class="profile-img"
       />
       <h1>Breno Cunha</h1>
-      <h2>Desenvolvedor Front-End</h2>
+      <h2>Desenvolvedor</h2>
       <p class="bio">
-        Apaixonado por tecnologia e design, criando interfaces modernas e
-        experiências digitais agradáveis.
+        Breno Cunha é estudante de 5o período da graduação em Ciência da Computação na 
+        Estácio, com formação técnica em Tecnologia da Informação pela FIRJAN SESI/SENAI.
+        Possui interesse nas áreas de desenvolvimento de software, inteligência 
+        artificial e tecnologia, com foco na construção de soluções tecnológicas.
       </p>
       <ul class="links">
         <li>
-          <a href="https://www.linkedin.com/in/brenofcunha" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/breno-cunha-36672b22b/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </li>
@@ -37,11 +68,23 @@
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/brenofcunha" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/brenof.cunha" target="_blank" rel="noopener noreferrer">
             Instagram
           </a>
         </li>
+        <li>
+          <a href=" http://lattes.cnpq.br/1323709229504980" target="_blank" rel="noopener noreferrer">
+            Lattes
+          </a>
+        </li>
       </ul>
+      </div>
     </div>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Script do formulário -->
+    <script src="script.js"></script>
   </body>
 </html>
