@@ -1,31 +1,13 @@
 // ========================================
-// CONFIGURAÇÃO EmailJS
+// ENVIO VIA API (VERCEL FUNCTION)
 // ========================================
-// 1. Acesse: https://www.emailjs.com/
-// 2. Crie uma conta gratuita
-// 3. Adicione um serviço de email (Gmail, Outlook, etc)
-// 4. Crie um template de email
-// 5. Substitua os valores abaixo com suas credenciais:
-
-const EMAILJS_CONFIG = {
-  serviceID: 'service_1d4sodm',      // Ex: 'service_abc123'
-  templateID: 'template_cn05b7v',    // Ex: 'template_xyz456'
-  publicKey: 'sxvU1mCzyGYxfeB9j'       // Ex: 'abc123xyz456'
-};
-
-// ========================================
-// INICIALIZAÇÃO
-// ========================================
-(function() {
-  emailjs.init(EMAILJS_CONFIG.publicKey);
-})();
 
 // ========================================
 // MANIPULADOR DO FORMULÁRIO
 // ========================================
 const feedbackForm = document.querySelector('.feedback-form');
 
-feedbackForm.addEventListener('submit', function(event) {
+feedbackForm.addEventListener('submit', async function(event) {
   event.preventDefault();
   
   const submitBtn = this.querySelector('.submit-btn');
@@ -43,35 +25,38 @@ feedbackForm.addEventListener('submit', function(event) {
     to_email: 'brenofcunha@gmail.com' // Meu email
   };
   
-  // Envia o email via EmailJS
-  emailjs.send(
-    EMAILJS_CONFIG.serviceID,
-    EMAILJS_CONFIG.templateID,
-    formData
-  )
-  .then(function(response) {
-    console.log('Email enviado com sucesso!', response.status, response.text);
-    
+  try {
+    const response = await fetch('/api/send-feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Falha ao enviar o email');
+    }
+
+    console.log('Email enviado com sucesso!', result);
+
     // Mostra mensagem de sucesso
     showMessage('Sugestão enviada com sucesso! Obrigado pelo feedback! 🎉', 'success');
-    
+
     // Limpa o formulário
     feedbackForm.reset();
-    
-    // Restaura o botão
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalBtnText;
-  })
-  .catch(function(error) {
+  } catch (error) {
     console.error('Erro ao enviar email:', error);
-    
+
     // Mostra mensagem de erro
     showMessage('Erro ao enviar sugestão. Tente novamente mais tarde. ❌', 'error');
-    
+  } finally {
     // Restaura o botão
     submitBtn.disabled = false;
     submitBtn.textContent = originalBtnText;
-  });
+  }
 });
 
 // ========================================
