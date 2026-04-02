@@ -4,33 +4,17 @@ inspirado em um exercício do curso de front-end do senai.
 # link
 https://potifolio-bice.vercel.app/
 
-# envio de feedback com vercel functions
+# Relatorio simples do projeto
 
-O envio do formulario agora acontece no servidor, pela rota `/api/send-feedback`.
-As chaves do EmailJS ficam em variaveis de ambiente e nao no front-end.
+## Contexto do que foi feito
+- O projeto começou como uma pagina simples de portfolio com bio, links sociais e estilo inicial.
+- Em seguida, a interface foi evoluida com melhorias visuais, imagem de perfil e formulario de feedback.
+- O envio de feedback, que antes era feito no front-end, foi migrado para uma Vercel Function para aumentar a seguranca.
+- As credenciais passaram a ser tratadas por variaveis de ambiente no servidor, sem expor chaves no cliente.
+- A estrutura do repositorio foi organizada com arquivos de apoio como `.env.example`, `.gitignore` e documentacao em pasta dedicada.
 
-## variaveis necessarias
+## Resultado atual
+- Portfolio publicado na Vercel.
+- Formulario integrado com rota serverless para envio de emails.
+- Base pronta para manutencao com configuracao de ambiente e documentacao.
 
-Use o arquivo `.env.example` como referencia:
-
-- `EMAILJS_SERVICE_ID`
-- `EMAILJS_TEMPLATE_ID`
-- `EMAILJS_PRIVATE_KEY`
-- `FEEDBACK_TO_EMAIL`
-
-## configurar no vercel
-
-No terminal, dentro do projeto, execute:
-
-```bash
-vercel env add EMAILJS_SERVICE_ID
-vercel env add EMAILJS_TEMPLATE_ID
-vercel env add EMAILJS_PRIVATE_KEY
-vercel env add FEEDBACK_TO_EMAIL
-```
-
-Depois, redeploy:
-
-```bash
-vercel --prod
-```
