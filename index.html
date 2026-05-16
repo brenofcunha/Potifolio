@@ -3,85 +3,208 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bio - Breno Cunha</title>
+    <title>Breno Cunha | Portfólio</title>
+    <meta
+      name="description"
+      content="Portfólio de Breno Cunha, estudante de Ciência da Computação com foco em desenvolvimento de software, IA e soluções web."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="card feedback-card">
-        <h2>Sugestões de Melhorias</h2>
-        <p class="feedback-description">
-          Compartilhe suas ideias e sugestões para melhorar este portfólio!
-        </p>
-        <form class="feedback-form">
-          <div class="form-group">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome" required />
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="comment">Comentário:</label>
-            <textarea 
-              id="comment" 
-              name="comment" 
-              rows="5" 
-              placeholder="Deixe sua sugestão aqui..."
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Enviar Sugestão</button>
-        </form>
-      </div>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="#top" class="brand">Breno Cunha</a>
+        <nav class="site-nav" aria-label="Navegação principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
 
-      <div class="card" id="card">
-      <img
-        src="img/WhatsApp Image 2026-03-30 at 13.50.43.jpeg"
-        alt="Foto de perfil de Breno Cunha"
-        class="profile-img"
-      />
-      <h1>Breno Cunha</h1>
-      <h2>Desenvolvedor</h2>
-      <p class="bio">
-        Breno Cunha é estudante de 5o período da graduação em Ciência da Computação na 
-        Estácio, com formação técnica em Tecnologia da Informação pela FIRJAN SESI/SENAI.
-        Possui interesse nas áreas de desenvolvimento de software, inteligência 
-        artificial e tecnologia, com foco na construção de soluções tecnológicas.
-      </p>
-      <ul class="links">
-        <li>
-          <a href="https://www.linkedin.com/in/breno-cunha-36672b22b/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/brenofcunha" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/brenof.cunha" target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
-        </li>
-        <li>
-          <a href=" http://lattes.cnpq.br/1323709229504980" target="_blank" rel="noopener noreferrer">
-            Lattes
-          </a>
-        </li>
-      </ul>
-      </div>
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="hero-intro">Breno Cunha</p>
+            <h1>Portfólio limpo, profissional e pronto para evoluir.</h1>
+            <p class="hero-text">
+              Sou Breno Cunha, estudante de Ciência da Computação e desenvolvedor em
+              formação, com foco em interfaces objetivas, boa estrutura e evolução contínua.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#sobre">Ver perfil</a>
+              <a class="button button-secondary" href="#contato">Enviar feedback</a>
+            </div>
+          </div>
+
+          <aside class="profile-panel">
+            <img
+              src="img/WhatsApp Image 2026-03-30 at 13.50.43.jpeg"
+              alt="Foto de perfil de Breno Cunha"
+              class="profile-img"
+            />
+            <div class="profile-content">
+              <p class="profile-label">Perfil profissional</p>
+              <h2>Desenvolvimento orientado a clareza e execução.</h2>
+              <p>
+                Busco criar experiências digitais objetivas, consistentes e prontas para evoluir.
+              </p>
+            </div>
+            <ul class="social-links">
+              <li>
+                <a href="https://www.linkedin.com/in/breno-cunha-36672b22b/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/brenofcunha" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/brenof.cunha" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="http://lattes.cnpq.br/1323709229504980" target="_blank" rel="noopener noreferrer">
+                  Lattes
+                </a>
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="content-section" id="sobre">
+          <div class="section-heading">
+            <span class="section-tag">Sobre</span>
+            <h2>Perfil, formação e visão de desenvolvimento</h2>
+          </div>
+          <div class="about-grid">
+            <article class="surface-card">
+              <p>
+                Atualmente curso o 5o período de Ciência da Computação na Estácio e
+                trago uma base técnica construída no curso de Tecnologia da
+                Informação pela FIRJAN SESI/SENAI.
+              </p>
+            </article>
+            <article class="surface-card">
+              <p>
+                Meu foco está em transformar requisitos em interfaces claras, com boa
+                hierarquia visual, usabilidade e consistência.
+              </p>
+            </article>
+            <article class="surface-card">
+              <p>
+                Tenho interesse em desenvolvimento de software, inteligência artificial
+                e construção de soluções tecnológicas com base prática.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" id="habilidades">
+          <div class="section-heading">
+            <span class="section-tag">Habilidades</span>
+            <h2>Base técnica organizada em um carrossel editável</h2>
+          </div>
+          <div class="carousel-header">
+            <p>
+              Esta área pode ser atualizada futuramente com novas stacks, ferramentas e competências.
+            </p>
+            <div class="carousel-controls" aria-label="Controles do carrossel de habilidades">
+              <button type="button" class="carousel-button" data-carousel-prev aria-label="Habilidade anterior">
+                Anterior
+              </button>
+              <button type="button" class="carousel-button" data-carousel-next aria-label="Próxima habilidade">
+                Próximo
+              </button>
+            </div>
+          </div>
+          <div class="carousel-shell">
+            <div class="featured-carousel" data-carousel-track>
+              <article class="featured-slide info-card">
+                <span class="slide-tag">Habilidade 01</span>
+              <h3>Front-end</h3>
+              <p>HTML, CSS e JavaScript para interfaces responsivas, organizadas e legíveis.</p>
+              </article>
+              <article class="featured-slide info-card">
+                <span class="slide-tag">Habilidade 02</span>
+              <h3>Estrutura</h3>
+              <p>Organização de seções, hierarquia visual e componentes com identidade consistente.</p>
+              </article>
+              <article class="featured-slide info-card">
+                <span class="slide-tag">Habilidade 03</span>
+              <h3>Aprendizado</h3>
+              <p>Evolução contínua em desenvolvimento de software, IA e boas práticas de implementação.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section contact-section" id="contato">
+          <div class="section-heading">
+            <span class="section-tag">Contato</span>
+            <h2>Envie uma sugestão de melhoria para o portfólio</h2>
+          </div>
+
+          <div class="contact-layout">
+            <div class="contact-copy surface-card">
+              <h3>Feedback direto e útil</h3>
+              <p>
+                Se você tiver uma sugestão sobre estrutura, clareza visual, conteúdo
+                ou próximos passos do projeto, envie pelo formulário. O objetivo
+                é usar esse retorno para evoluir a apresentação com critério.
+              </p>
+            </div>
+
+            <div class="form-card">
+              <form class="feedback-form">
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" id="name" name="name" placeholder="Seu nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="comment">Comentário</label>
+                  <textarea
+                    id="comment"
+                    name="comment"
+                    rows="5"
+                    placeholder="Escreva sua sugestão aqui..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar sugestão</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p class="footer-brand">Breno Cunha</p>
+          <p class="footer-copy">
+            Portfólio desenvolvido para apresentar trajetória, projetos e evolução técnica com clareza.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#top">Voltar ao topo</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </footer>
     </div>
-    
-    <!-- Script do formulário -->
+
     <script src="script.js"></script>
   </body>
 </html>
