@@ -832,7 +832,7 @@
             <textarea id="mensagem" name="mensagem" required></textarea>
           </div>
           <button type="submit" class="btn-enviar">Enviar mensagem</button>
-          <p class="form-nota">O formulário abre seu aplicativo de e-mail para envio.</p>
+          <p class="form-nota" id="feedbackStatus" role="status" aria-live="polite">Sua mensagem será enviada com segurança.</p>
         </form>
       </div>
     </div>
@@ -879,15 +879,47 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Formulário: abre o e-mail com os dados preenchidos
-  document.getElementById('formContato').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
-    const assunto = encodeURIComponent('Contato pelo portfólio — Breno Cunha');
-    const corpo = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\n\n${mensagem}`);
-    window.location.href = `mailto:brenofcunha@gmail.com?subject=${assunto}&body=${corpo}`;
+  // Envio do formulário pela função serverless /api/send-feedback
+  document.getElementById('formContato').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const status = document.getElementById('feedbackStatus');
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+    status.textContent = 'Enviando sua mensagem...';
+    status.className = 'form-nota';
+
+    try {
+      const response = await fetch('/api/send-feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from_name: form.elements.nome.value.trim(),
+          from_email: form.elements.email.value.trim(),
+          message: form.elements.mensagem.value.trim()
+        })
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Não foi possível enviar a mensagem.');
+      }
+
+      form.reset();
+      status.textContent = 'Mensagem enviada com sucesso. Obrigado pelo contato!';
+      status.className = 'form-nota sucesso';
+    } catch (error) {
+      status.textContent = error.message || 'Não foi possível enviar a mensagem. Tente novamente mais tarde.';
+      status.className = 'form-nota erro';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
   });
 </script>
 
