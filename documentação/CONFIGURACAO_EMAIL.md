@@ -50,26 +50,21 @@ Enviado via formulário do portfólio
 2. Clique em **General**
 3. Copie a **Public Key** (exemplo: `abc123xyz456`)
 
-## Passo 5: Atualizar o Código
+## Passo 5: Configurar as variáveis na Vercel
 
-Abra o arquivo `script.js` e atualize as seguintes linhas:
+Na Vercel, configure estas variáveis de ambiente no projeto:
 
-```javascript
-const EMAILJS_CONFIG = {
-  serviceID: 'SEU_SERVICE_ID',      // Substitua pelo Service ID
-  templateID: 'SEU_TEMPLATE_ID',    // Substitua pelo Template ID
-  publicKey: 'SUA_PUBLIC_KEY'       // Substitua pela Public Key
-};
+```text
+EMAILJS_SERVICE_ID=seu_service_id
+EMAILJS_TEMPLATE_ID=seu_template_id
+EMAILJS_PRIVATE_KEY=sua_chave_privada
 ```
 
-E também atualize seu email na linha:
-```javascript
-to_email: 'seu-email@example.com' // Substitua pelo seu email
-```
+O destinatário é fixo no servidor: `brenofcunha@gmail.com`.
 
 ## Passo 6: Testar
 
-1. Abra o arquivo `index.html` no navegador
+1. Acesse o portfólio publicado na Vercel
 2. Preencha o formulário de sugestões
 3. Clique em **Enviar Sugestão**
 4. Verifique seu email!

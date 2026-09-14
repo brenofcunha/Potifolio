@@ -4,9 +4,10 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Metodo nao permitido' });
   }
 
-  const { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PRIVATE_KEY, FEEDBACK_TO_EMAIL } = process.env;
+  const { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PRIVATE_KEY } = process.env;
+  const recipientEmail = 'brenofcunha@gmail.com';
 
-  if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PRIVATE_KEY || !FEEDBACK_TO_EMAIL) {
+  if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PRIVATE_KEY) {
     return res.status(500).json({
       error: 'Variaveis de ambiente nao configuradas no servidor'
     });
@@ -32,7 +33,7 @@ module.exports = async function handler(req, res) {
           from_name,
           from_email,
           message,
-          to_email: FEEDBACK_TO_EMAIL
+          to_email: recipientEmail
         }
       })
     });
