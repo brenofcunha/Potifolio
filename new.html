@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breno Cunha | Suporte, Infraestrutura e Automação</title>
+<meta name="description" content="Portfólio de Breno Cunha, estudante de Ciência da Computação com foco em suporte técnico, infraestrutura e automação de TI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-escuro: #1F3B73;
+    --azul-medio: #2E74B5;
+    --azul-claro: #E8F0FA;
+    --cinza-escuro: #2D3748;
+    --cinza-medio: #4A5568;
+    --cinza-claro: #F7FAFC;
+    --branco: #FFFFFF;
+    --borda: #E2E8F0;
+    --sombra: 0 4px 20px rgba(31, 59, 115, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--cinza-escuro);
+    background: var(--branco);
+    line-height: 1.6;
+  }
+
+  /* ===== MENU FIXO ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borda);
+    z-index: 1000;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--azul-escuro);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--azul-medio); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--cinza-medio);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--azul-medio); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--azul-escuro);
+    cursor: pointer;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 140px 24px 80px;
+    background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+    color: var(--branco);
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .hero .subtitulo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #C9DDF5;
+    margin-bottom: 24px;
+  }
+
+  .hero p {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    font-size: 1.05rem;
+    color: #E2EDFA;
+  }
+
+  .hero-botoes {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primario {
+    background: var(--branco);
+    color: var(--azul-escuro);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secundario {
+    background: transparent;
+    color: var(--branco);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .btn-secundario:hover { border-color: var(--branco); }
+
+  /* ===== SEÇÕES ===== */
+  section { padding: 80px 24px; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .secao-titulo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--azul-escuro);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .secao-subtitulo {
+    text-align: center;
+    color: var(--cinza-medio);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-size: 1rem;
+  }
+
+  .bg-claro { background: var(--cinza-claro); }
+
+  /* ===== SOBRE ===== */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .sobre-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+  }
+
+  .sobre-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .sobre-card p { color: var(--cinza-medio); font-size: 0.95rem; }
+
+  .sobre-card ul {
+    list-style: none;
+    margin-top: 8px;
+  }
+
+  .sobre-card li {
+    color: var(--cinza-medio);
+    font-size: 0.95rem;
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .sobre-card li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--azul-medio);
+    font-weight: 700;
+  }
+
+  /* ===== COMPETÊNCIAS ===== */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .comp-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .comp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(31, 59, 115, 0.12);
+  }
+
+  .comp-icone {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--azul-claro);
+    color: var(--azul-medio);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+  }
+
+  .comp-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .comp-card p {
+    color: var(--cinza-medio);
+    font-size: 0.92rem;
+  }
+
+  /* ===== PROJETOS ===== */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .proj-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .proj-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(31, 59, 115, 0.12);
+  }
+
+  .proj-tag {
+    align-self: flex-start;
+    background: var(--azul-claro);
+    color: var(--azul-medio);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .proj-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .proj-card p {
+    color: var(--cinza-medio);
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+
+  .proj-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .proj-tech span {
+    background: var(--cinza-claro);
+    border: 1px solid var(--borda);
+    color: var(--cinza-escuro);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .proj-links a {
+    color: var(--azul-medio);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-right: 16px;
+  }
+
+  .proj-links a:hover { text-decoration: underline; }
+
+  /* ===== EXPERIÊNCIA ===== */
+  .exp-item {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+    margin-bottom: 24px;
+  }
+
+  .exp-item h3 {
+    color: var(--azul-escuro);
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+
+  .exp-item .exp-org {
+    color: var(--azul-medio);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .exp-item ul {
+    list-style: none;
+  }
+
+  .exp-item li {
+    color: var(--cinza-medio);
+    font-size: 0.93rem;
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .exp-item li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--azul-medio);
+    font-weight: 700;
+  }
+
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .curso-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: var(--sombra);
+  }
+
+  .curso-card h4 {
+    color: var(--azul-escuro);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .curso-card p {
+    color: var(--cinza-medio);
+    font-size: 0.85rem;
+  }
+
+  .curso-card .curso-ano {
+    color: var(--azul-medio);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  /* ===== CONTATO ===== */
+  .contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .contato-info h3 {
+    color: var(--azul-escuro);
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  .contato-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    color: var(--cinza-medio);
+    font-size: 0.95rem;
+  }
+
+  .contato-item a {
+    color: var(--cinza-medio);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contato-item a:hover { color: var(--azul-medio); }
+
+  .contato-icone {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--azul-claro);
+    color: var(--azul-medio);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contato-form {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+  }
+
+  .contato-form h3 {
+    color: var(--azul-escuro);
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+  }
+
+  .form-grupo { margin-bottom: 16px; }
+
+  .form-grupo label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cinza-escuro);
+    margin-bottom: 6px;
+  }
+
+  .form-grupo input,
+  .form-grupo textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--cinza-escuro);
+    background: var(--cinza-claro);
+    transition: border-color 0.2s;
+  }
+
+  .form-grupo input:focus,
+  .form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--azul-medio);
+    background: var(--branco);
+  }
+
+  .form-grupo textarea { resize: vertical; min-height: 100px; }
+
+  .btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-enviar:hover { background: var(--azul-medio); }
+
+  .form-nota {
+    font-size: 0.8rem;
+    color: var(--cinza-medio);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer {
+    background: var(--azul-escuro);
+    color: #C9DDF5;
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.88rem;
+  }
+
+  footer a {
+    color: var(--branco);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== ANIMAÇÃO DE ENTRADA ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visivel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--branco);
+      flex-direction: column;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--borda);
+      gap: 16px;
+    }
+
+    .nav-links.aberto { display: flex; }
+
+    .nav-toggle { display: block; }
+
+    .hero { padding: 120px 20px 60px; }
+
+    .hero h1 { font-size: 2rem; }
+
+    .sobre-grid,
+    .contato-grid { grid-template-columns: 1fr; }
+
+    section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== MENU ===== -->
+<header>
+  <nav class="nav-container">
+    <a href="#inicio" class="nav-logo">Breno<span>Cunha</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#competencias">Competências</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <h1>BRENO CUNHA</h1>
+  <p class="subtitulo">Estudante de Ciência da Computação | Suporte, Infraestrutura e Automação</p>
+  <p>Técnico em Tecnologia da Informação com foco em suporte técnico, infraestrutura e automação de processos. Experiência prática com manutenção de computadores, testes funcionais de aplicações e documentação técnica.</p>
+  <div class="hero-botoes">
+    <a href="https://github.com/brenofcunha" target="_blank" rel="noopener" class="btn btn-primario">GitHub</a>
+    <a href="https://www.linkedin.com/in/breno-cunha-36672b22b/" target="_blank" rel="noopener" class="btn btn-secundario">LinkedIn</a>
+    <a href="Curriculo_Breno_Cunha_Estagio_TI.pdf" download class="btn btn-secundario">Baixar currículo</a>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre">
+  <div class="container">
+    <h2 class="secao-titulo">Sobre mim</h2>
+    <p class="secao-subtitulo">Perfil, formação e direção profissional</p>
+    <div class="sobre-grid">
+      <div class="sobre-card reveal">
+        <h3>Formação</h3>
+        <p><strong>Ciência da Computação</strong> — Estácio (2024–2028, 6º período)</p>
+        <p style="margin-top:8px;"><strong>Técnico em Tecnologia da Informação</strong> — SESI SENAI Maracanã (2019–2021)</p>
+      </div>
+      <div class="sobre-card reveal">
+        <h3>Direção profissional</h3>
+        <ul>
+          <li>Suporte técnico e atendimento a usuários</li>
+          <li>Infraestrutura: redes, sistemas operacionais e hardware</li>
+          <li>Automação de processos com Python</li>
+          <li>Banco de dados e documentação técnica</li>
+          <li>Resolução de problemas com método e registro</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPETÊNCIAS ===== -->
+<section id="competencias" class="bg-claro">
+  <div class="container">
+    <h2 class="secao-titulo">Competências técnicas</h2>
+    <p class="secao-subtitulo">Conhecimentos organizados por área de atuação</p>
+    <div class="comp-grid">
+      <div class="comp-card reveal">
+        <div class="comp-icone">🖥️</div>
+        <h3>Suporte e Infraestrutura</h3>
+        <p>Windows, Linux, redes, hardware, manutenção preventiva e corretiva, diagnóstico de equipamentos, instalação de componentes, sistemas e softwares, suporte técnico.</p>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icone">⚙️</div>
+        <h3>Automação e Programação</h3>
+        <p>Python, Java, HTML, CSS e automação de processos. Aplicação de lógica de programação para resolver problemas do dia a dia.</p>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icone">🗄️</div>
+        <h3>Banco de Dados</h3>
+        <p>SQL, MySQL e SQLite para consulta, organização e manipulação de dados.</p>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icone">🧰</div>
+        <h3>Ferramentas</h3>
+        <p>Git, GitHub, VS Code e Microsoft Office para versionamento, desenvolvimento e produtividade.</p>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icone">📋</div>
+        <h3>Qualidade e Documentação</h3>
+        <p>Testes funcionais, validação de aplicações, registro de inconsistências, elaboração de relatórios e documentação técnica.</p>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icone">☁️</div>
+        <h3>Nuvem</h3>
+        <p>AWS — fundamentos de computação em nuvem, com noções de serviços e infraestrutura na nuvem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJETOS ===== -->
+<section id="projetos">
+  <div class="container">
+    <h2 class="secao-titulo">Projetos</h2>
+    <p class="secao-subtitulo">Trabalhos práticos que demonstram minhas habilidades</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <span class="proj-tag">Suporte</span>
+        <h3>Manutenção e Suporte de Computadores</h3>
+        <p>Atendimento prático de manutenção preventiva e corretiva em computadores, com diagnóstico de hardware, instalação de componentes, sistemas e softwares, e otimização de equipamentos.</p>
+        <div class="proj-tech">
+          <span>Hardware</span>
+          <span>Windows</span>
+          <span>Linux</span>
+          <span>Diagnóstico</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/brenofcunha" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="proj-tag">Desenvolvimento</span>
+        <h3>EduCalc — Plataforma de Estudo de Cálculo</h3>
+        <p>Plataforma gratuita de estudo de Cálculo com trilhas de Cálculo I a Vetorial, aulas interativas com fórmulas renderizadas em tempo real, exercícios de múltipla escolha, verdadeiro/falso e questões abertas, fórum colaborativo, pasta de estudo com anotações em Markdown e gamificação com XP, streaks e acompanhamento de progresso.</p>
+        <div class="proj-tech">
+            <span>Next.js</span>
+            <span>KaTeX</span>
+            <span>Markdown</span>
+            <span>Vercel</span>
+        </div>
+        <div class="proj-links">
+            <a href="https://github.com/brenofcunha/edu-cal" target="_blank" rel="noopener">Ver no GitHub →</a>
+            <a href="https://edu-cal-khaki.vercel.app" target="_blank" rel="noopener">Ver demonstração →</a>
+        </div>
+        </div>
+      <div class="proj-card reveal">
+        <span class="proj-tag">Automação</span>
+        <h3>Scripts de Automação em Python</h3>
+        <p>Automação de tarefas repetitivas como organização de arquivos, tratamento de dados e rotinas de manutenção, reduzindo erros manuais e ganhando produtividade.</p>
+        <div class="proj-tech">
+          <span>Python</span>
+          <span>Automação</span>
+          <span>Scripts</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/brenofcunha" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIÊNCIA ===== -->
+<section id="experiencia" class="bg-claro">
+  <div class="container">
+    <h2 class="secao-titulo">Experiência e trajetória</h2>
+    <p class="secao-subtitulo">Atuação prática e formação complementar</p>
+
+    <div class="exp-item reveal">
+      <h3>Fuzzylab — Projeto Parabellum</h3>
+      <p class="exp-org">Membro da equipe</p>
+      <ul>
+        <li>Realização de testes funcionais e validação de modelos de Inteligência Artificial.</li>
+        <li>Identificação de inconsistências e registro de resultados.</li>
+        <li>Elaboração de documentação técnica e relatórios.</li>
+        <li>Colaboração na análise e resolução de problemas das aplicações.</li>
+      </ul>
+    </div>
+
+    <h3 style="color:var(--azul-escuro); margin-bottom:16px;">Cursos e certificações</h3>
+    <div class="cursos-grid">
+      <div class="curso-card reveal">
+        <h4>AWS — Fundamentos de Computação em Nuvem</h4>
+        <p>Computação em nuvem</p>
+        <p class="curso-ano">2024</p>
+      </div>
+      <div class="curso-card reveal">
+        <h4>Backend</h4>
+        <p>SENAI</p>
+        <p class="curso-ano">2025</p>
+      </div>
+      <div class="curso-card reveal">
+        <h4>Banco de Dados</h4>
+        <p>SENAI</p>
+        <p class="curso-ano">2025</p>
+      </div>
+      <div class="curso-card reveal">
+        <h4>Reparos de Informática</h4>
+        <p>Everton Duarte</p>
+        <p class="curso-ano">2026</p>
+      </div>
+      <div class="curso-card reveal">
+        <h4>SINGED Lab Desastres</h4>
+        <p>IBGE — capacitação no âmbito do Sistema Nacional de Geociências, Estatística e Dados (3h)</p>
+        <p class="curso-ano">2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato">
+  <div class="container">
+    <h2 class="secao-titulo">Contato</h2>
+    <p class="secao-subtitulo">Vamos conversar sobre oportunidades de estágio</p>
+    <div class="contato-grid">
+      <div class="contato-info reveal">
+        <h3>Informações de contato</h3>
+        <div class="contato-item">
+          <div class="contato-icone">✉️</div>
+          <a href="mailto:brenofcunha@gmail.com">brenofcunha@gmail.com</a>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icone">📱</div>
+          <span>(21) 99406-6536</span>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icone">🔗</div>
+          <a href="https://www.linkedin.com/in/breno-cunha-36672b22b/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icone">💻</div>
+          <a href="https://github.com/brenofcunha" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icone">🎓</div>
+          <a href="http://lattes.cnpq.br/1323709229504980" target="_blank" rel="noopener">Currículo Lattes</a>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icone">📄</div>
+          <a href="Curriculo_Breno_Cunha_Estagio_TI.pdf" download>Baixar currículo em PDF</a>
+        </div>
+      </div>
+      <div class="contato-form reveal">
+        <h3>Envie uma mensagem</h3>
+        <form id="formContato">
+          <div class="form-grupo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="form-grupo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-grupo">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+          </div>
+          <button type="submit" class="btn-enviar">Enviar mensagem</button>
+          <p class="form-nota">O formulário abre seu aplicativo de e-mail para envio.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RODAPÉ ===== -->
+<footer>
+  <p>© 2026 Breno Cunha — Suporte, Infraestrutura e Automação</p>
+  <p style="margin-top:8px;">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#competencias">Competências</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#contato">Contato</a>
+  </p>
+</footer>
+
+<script>
+  // Menu mobile
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('aberto');
+  });
+
+  // Fechar menu ao clicar em um link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('aberto');
+    });
+  });
+
+  // Animação de entrada ao rolar
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visivel');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Formulário: abre o e-mail com os dados preenchidos
+  document.getElementById('formContato').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const assunto = encodeURIComponent('Contato pelo portfólio — Breno Cunha');
+    const corpo = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\n\n${mensagem}`);
+    window.location.href = `mailto:brenofcunha@gmail.com?subject=${assunto}&body=${corpo}`;
+  });
+</script>
+
+</body>
+</html>
